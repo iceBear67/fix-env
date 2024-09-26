@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group = 'io.ib67'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+java {
+    sourceCompatibility=targetCompatibility=17
+}
+jar {
+    manifest {
+        def attr = new HashMap<>();
+        attr.put("Premain-Class", "io.ib67.PreMain")
+        attr.put("Can-Retransform-Classes", "false")
+        attributes(attr)
+    }
+}
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
