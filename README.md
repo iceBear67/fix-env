@@ -4,4 +4,6 @@
 具体原因如下：在 `~/.zshrc` 下配置的环境变量（也就是 GPG-as-SSH Agent）并不能被以 **.desktop** 文件形式启动的 IDEA 加载到，因此这个修复工具会在 IDEA 启动前调用/加载你的 zshrc 并且把它们填充回 IDEA 的环境变量中。
 
 # Usage
-在 vmoption 中加入一行即可: `-javaagent:/path/to/fix-env.jar`
+在 vmoption 中加入一行即可: `-javaagent:/path/to/fix-env.jar`  
+
+(之所以使用 vmoption 而不是直接修改脚本方案是因为 JetBrains Toolbox 会把 .desktop 文件等覆盖掉，不过我暂时没有测试过 vmoption 能不能自动迁移)
